@@ -18,7 +18,7 @@ public class Shaker {
             // low to high index
             for (int i = 0; i < a.length - 1; i++) {
                 counter++;
-                if ( less(a[i], a[i+1]) ) {
+                if ( less(a[i+1], a[i]) ) {
                    Comparable temp = a[i];
                     a[i] = a[i+1];
                     a[i+1] = temp;
