@@ -18,7 +18,7 @@ n6Heap = n6(:,3);
 n6Quick = n6(:,4);
 n6Shaker = n6(:,5);
 
-n8OriginalArray = n84(:,1);
+n8OriginalArray = n8(:,1);
 n8Merge = n8(:,2);
 n8Heap = n8(:,3);
 n8Quick = n8(:,4);
