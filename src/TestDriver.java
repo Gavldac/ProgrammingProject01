@@ -6,9 +6,6 @@ import java.io.IOException;
  * Class for storing data from each sorting algorithm Used for CS2430 Project 1
  * Group assignment
  * 
- * This is my attempt at a Lexiographic Array Generator - Corbin
- * 
- * 
  * @author Corbin
  */
 public class TestDriver {
