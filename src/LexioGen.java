@@ -115,5 +115,17 @@ public class LexioGen {
         next[i] = next[j];
         next[j] = tmp;
     }
+    // returns single array value from index position
+    public Integer[] singledArray(Integer[][] array, int index) 
+    {
+        Integer[] single = new Integer[size];
+
+        for(int i = 0; i < size; i++)
+        {
+        single[i] = array[index][i];
+        }
+
+        return single;
+    }
 
 }
