@@ -45,6 +45,7 @@ import edu.princeton.cs.algs4.StdOut;
  *
  * @author Robert Sedgewick
  * @author Kevin Wayne
+ * @author Edwin Casady - modified to return a count of comparisons
  */
 public class Merge {
     static int counter;
