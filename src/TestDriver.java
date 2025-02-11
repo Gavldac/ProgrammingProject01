@@ -50,13 +50,10 @@ public class TestDriver {
 
 	private static void Test(Integer[] nums, BufferedWriter bw) throws IOException 
 	{
-
-		Integer[] test;
-		test = nums.clone();
 		StringBuilder sb = new StringBuilder();
 		String r;
 
-		for (int i:test)
+		for (int i:nums)
 		{
 		sb.append(i);
 		}
@@ -64,16 +61,16 @@ public class TestDriver {
 		bw.write(r);
 		bw.write(",");
 
-		bw.write(String.valueOf(Merge.sort(test)));
+		bw.write(String.valueOf(Merge.sort(nums.clone())));
 		bw.write(",");
 		
-		bw.write(String.valueOf(Heap.sort(test)));
+		bw.write(String.valueOf(Heap.sort(nums.clone())));
 		bw.write(",");
 		
-		bw.write(String.valueOf(Quick.sort(test)));
+		bw.write(String.valueOf(Quick.sort(nums.clone())));
 		bw.write(",");
 
-		bw.write(String.valueOf(Shaker.sort(test)));
+		bw.write(String.valueOf(Shaker.sort(nums.clone())));
 		bw.write("\n");
 	}
 }

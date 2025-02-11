@@ -40,6 +40,7 @@ import edu.princeton.cs.algs4.StdRandom;
  *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
+ *  @author Edwin Casady - modified to return a count of the number of comparisons
  */
 public class Quick {
 
