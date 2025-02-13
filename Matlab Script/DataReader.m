@@ -6,6 +6,9 @@ load n6.CSV
 load n8.CSV
 
 % assigning variables
+
+c0 = linspace(1,10,10);
+
 n4OriginalArray = n4(:,1);
 n4Merge = n4(:,2);
 n4Heap = n4(:,3);
@@ -81,3 +84,69 @@ n6ShakerAverage = (sum(n6Shaker))/(length(n6Shaker))
 [n8ShakerBest,n8SBIDX] = mink(n8Shaker,10)
 n8ShakerAverage = (sum(n8Shaker))/(length(n8Shaker))
 [n8ShakerWorst,n8SWIDX] = maxk(n8Shaker,10)
+
+% Best and Worst 10 Average
+n4MBAVG = (sum(n4MergeBest))/(length(n4MergeBest))
+n4MWAVG = (sum(n4MergeWorst))/(length(n4MergeWorst))
+n4HBAVG = (sum(n4HeapBest))/(length(n4HeapBest))
+n4HWAVG = (sum(n4HeapWorst))/(length(n4HeapWorst))
+n4QBAVG = (sum(n4QuickBest))/(length(n4QuickBest))
+n4QWAVG = (sum(n4QuickWorst))/(length(n4QuickWorst))
+n4SBAVG = (sum(n4ShakerBest))/(length(n4ShakerBest))
+n4SWAVG = (sum(n4ShakerWorst))/(length(n4ShakerWorst))
+
+n6MBAVG = (sum(n6MergeBest))/(length(n6MergeBest))
+n6MWAVG = (sum(n6MergeWorst))/(length(n6MergeWorst))
+n6HBAVG = (sum(n6HeapBest))/(length(n6HeapBest))
+n6HWAVG = (sum(n6HeapWorst))/(length(n6HeapWorst))
+n6QBAVG = (sum(n6QuickBest))/(length(n6QuickBest))
+n6QWAVG = (sum(n6QuickWorst))/(length(n6QuickWorst))
+n6SBAVG = (sum(n6ShakerBest))/(length(n6ShakerBest))
+n6SWAVG = (sum(n6ShakerWorst))/(length(n6ShakerWorst))
+
+n8MBAVG = (sum(n8MergeBest))/(length(n8MergeBest))
+n8MWAVG = (sum(n8MergeWorst))/(length(n8MergeWorst))
+n8HBAVG = (sum(n8HeapBest))/(length(n8HeapBest))
+n8HWAVG = (sum(n8HeapWorst))/(length(n8HeapWorst))
+n8QBAVG = (sum(n8QuickBest))/(length(n8QuickBest))
+n8QWAVG = (sum(n8QuickWorst))/(length(n8QuickWorst))
+n8SBAVG = (sum(n8ShakerBest))/(length(n8ShakerBest))
+n8SWAVG = (sum(n8ShakerWorst))/(length(n8ShakerWorst))
+
+% Graphing
+
+figure(1); % comparisons vs n
+subplot(2,2,1); % 2 by 2 graphs on same page, first of 4 graphs follows
+plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4MBAVG,'go',4,n4MWAVG,'go',4,n4MergeAverage,'go',6, ...
+    n6MBAVG,'ro',6,n6MWAVG,'ro',6,n6MergeAverage,'ro', ...
+    8,n8MBAVG,'bo',8,n8MWAVG,'bo',8,n8MergeAverage,'bo'), grid; 
+ylim([0,50])
+xlabel('Array Size');
+ylabel('Comparisons');
+title('Merge');
+
+subplot(2,2,2); 
+plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,c0,n4HBAVG,c0,n4HWAVG,c0,n4HeapAverage,c0, ...
+    n6HBAVG,c0,n6HWAVG,c0,n6HeapAverage, ...
+    c0,n8HBAVG,c0,n8HWAVG,c0,n8HeapAverage), grid; 
+xlabel('Array Size');
+ylabel('Comparisons');
+title('Heap');
+
+subplot(2,2,3); 
+plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,c0,n4QBAVG,c0,n4QWAVG,c0,n4QuickAverage,c0, ...
+    n6QBAVG,c0,n6QWAVG,c0,n6QuickAverage, ...
+    c0,n8QBAVG,c0,n8QWAVG,c0,n8QuickAverage), grid; 
+xlabel('Array Size');
+ylabel('Comparisons');
+title('Quick');
+
+subplot(2,2,4); 
+plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,c0,n4SBAVG,c0,n4SWAVG,c0,n4ShakerAverage,c0, ...
+    n6SBAVG,c0,n6SWAVG,c0,n6ShakerAverage, ...
+    c0,n8SBAVG,c0,n8SWAVG,c0,n8ShakerAverage), grid; 
+xlabel('Array Size');
+ylabel('Comparisons');
+title('Shaker');
+
+
