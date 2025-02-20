@@ -13,8 +13,8 @@ public class Shaker {
         boolean  swapped = true;
 
         while (swapped){
-            swapped = false;
 
+            swapped = false;
             // low to high index
             for (int i = 0; i < a.length - 1; i++) {
                 counter++;
@@ -29,6 +29,7 @@ public class Shaker {
             // did not have anymore swaps todo
             if (!swapped) break;
 
+            swapped = false;
             // high to low index
             for (int i = a.length - 1; i > 0; i--) {
                 counter++;
