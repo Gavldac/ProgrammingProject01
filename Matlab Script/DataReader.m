@@ -7,7 +7,7 @@ load n8.CSV
 
 % assigning variables
 
-c0 = linspace(1,10,10);
+c0 = linspace(1,13,13);
 
 n4OriginalArray = n4(:,1);
 n4Merge = n4(:,2);
@@ -119,42 +119,50 @@ figure(1); % comparisons vs n
 subplot(2,2,1); % 2 by 2 graphs on same page, first of 4 graphs follows
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4MBAVG,'go',4,n4MWAVG,'go',4,n4MergeAverage,'go',6, ...
     n6MBAVG,'ro',6,n6MWAVG,'ro',6,n6MergeAverage,'ro', ...
-    8,n8MBAVG,'bo',8,n8MWAVG,'bo',8,n8MergeAverage,'bo'), grid; 
-legend('O(n)^2', 'nlog(n)', 'n');
-ylim([0,70]);
+    8,n8MBAVG,'bo',8,n8MWAVG,'bo',8,n8MergeAverage,'bo', ...
+    c0,1.024.*c0.*log(c0),'m',c0,0.72.*c0.*log(c0),'c',c0,0.947.*c0.*log(c0),'k'), grid; 
+%ylim([0,70]);
+xlim([1,13]);
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Merge');
+legend('O(n)^2', 'nlog(n)', 'n');
 
 subplot(2,2,2); 
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4HBAVG,'go',4,n4HWAVG,'go',4,n4HeapAverage,'go',6, ...
     n6HBAVG,'ro',6,n6HWAVG,'ro',6,n6HeapAverage,'ro', ...
-    8,n8HBAVG,'bo',8,n8HWAVG,'bo',8,n8HeapAverage,'bo'), grid;
-legend('O(n)^2', 'nlog(n)', 'n');
-ylim([0,70]);
+    8,n8HBAVG,'bo',8,n8HWAVG,'bo',8,n8HeapAverage,'bo', ...
+    c0,1.746.*c0.*log(c0),'m',c0,1.265.*c0.*log(c0),'c',c0,1.554.*c0.*log(c0),'k'), grid; 
+%ylim([0,70]);
+xlim([1,13]);
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Heap');
+legend('O(n)^2', 'nlog(n)', 'n');
 
 subplot(2,2,3); 
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4QBAVG,'go',4,n4QWAVG,'go',4,n4QuickAverage,'go',6, ...
     n6QBAVG,'ro',6,n6QWAVG,'ro',6,n6QuickAverage,'ro', ...
-    8,n8QBAVG,'bo',8,n8QWAVG,'bo',8,n8QuickAverage,'bo'), grid; 
-legend('O(n)^2', 'nlog(n)', 'n');
-ylim([0,70]); 
+    8,n8QBAVG,'bo',8,n8QWAVG,'bo',8,n8QuickAverage,'bo', ...
+    c0,0.642.*c0.^2,'m',c0,1.204.*c0.*log(c0),'c'), grid; 
+%ylim([0,70]);
+xlim([1,13]);
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Quick');
+legend('O(n)^2', 'nlog(n)', 'n');
 
 subplot(2,2,4); 
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4SBAVG,'go',4,n4SWAVG,'go',4,n4ShakerAverage,'go',6, ...
     n6SBAVG,'ro',6,n6SWAVG,'ro',6,n6ShakerAverage,'ro', ...
-    8,n8SBAVG,'bo',8,n8SWAVG,'bo',8,n8ShakerAverage,'bo'), grid; 
-legend('O(n)^2', 'nlog(n)', 'n');
-ylim([0,70]); 
+    8,n8SBAVG,'bo',8,n8SWAVG,'bo',8,n8ShakerAverage,'bo', ...
+    c0,0.972.*c0.^2,'m',c0,1.18.*c0.*log(c0),'c'), grid; 
+%ylim([0,70]); 
+xlim([1,13]);
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Shaker');
+legend('O(n)^2', 'nlog(n)', 'n');
 
 % paste results
 
