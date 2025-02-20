@@ -120,6 +120,7 @@ subplot(2,2,1); % 2 by 2 graphs on same page, first of 4 graphs follows
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4MBAVG,'go',4,n4MWAVG,'go',4,n4MergeAverage,'go',6, ...
     n6MBAVG,'ro',6,n6MWAVG,'ro',6,n6MergeAverage,'ro', ...
     8,n8MBAVG,'bo',8,n8MWAVG,'bo',8,n8MergeAverage,'bo'), grid; 
+legend('O(n)^2', 'nlog(n)', 'n');
 ylim([0,70]);
 xlabel('Array Size');
 ylabel('Comparisons');
@@ -128,7 +129,8 @@ title('Merge');
 subplot(2,2,2); 
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4HBAVG,'go',4,n4HWAVG,'go',4,n4HeapAverage,'go',6, ...
     n6HBAVG,'ro',6,n6HWAVG,'ro',6,n6HeapAverage,'ro', ...
-    8,n8HBAVG,'bo',8,n8HWAVG,'bo',8,n8HeapAverage,'bo'), grid; 
+    8,n8HBAVG,'bo',8,n8HWAVG,'bo',8,n8HeapAverage,'bo'), grid;
+legend('O(n)^2', 'nlog(n)', 'n');
 ylim([0,70]);
 xlabel('Array Size');
 ylabel('Comparisons');
@@ -138,6 +140,7 @@ subplot(2,2,3);
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4QBAVG,'go',4,n4QWAVG,'go',4,n4QuickAverage,'go',6, ...
     n6QBAVG,'ro',6,n6QWAVG,'ro',6,n6QuickAverage,'ro', ...
     8,n8QBAVG,'bo',8,n8QWAVG,'bo',8,n8QuickAverage,'bo'), grid; 
+legend('O(n)^2', 'nlog(n)', 'n');
 ylim([0,70]); 
 xlabel('Array Size');
 ylabel('Comparisons');
@@ -147,9 +150,54 @@ subplot(2,2,4);
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,4,n4SBAVG,'go',4,n4SWAVG,'go',4,n4ShakerAverage,'go',6, ...
     n6SBAVG,'ro',6,n6SWAVG,'ro',6,n6ShakerAverage,'ro', ...
     8,n8SBAVG,'bo',8,n8SWAVG,'bo',8,n8ShakerAverage,'bo'), grid; 
+legend('O(n)^2', 'nlog(n)', 'n');
 ylim([0,70]); 
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Shaker');
 
+% paste results
+
+n4MergeBestArrays = n4OriginalArray(n4MBIDX);
+n4MergeWorstArrays = n4OriginalArray(n4MWIDX);
+n4HeapBestArrays = n4OriginalArray(n4HBIDX);
+n4HeapWorstArrays = n4OriginalArray(n4HWIDX);
+n4QuickBestArrays = n4OriginalArray(n4QBIDX);
+n4QuickWorstArrays = n4OriginalArray(n4QWIDX);
+n4ShakerBestArrays = n4OriginalArray(n4SBIDX);
+n4ShakerWorstArrays = n4OriginalArray(n4SWIDX);
+
+n6MergeBestArrays = n6OriginalArray(n6MBIDX);
+n6MergeWorstArrays = n6OriginalArray(n6MWIDX);
+n6HeapBestArrays = n6OriginalArray(n6HBIDX);
+n6HeapWorstArrays = n6OriginalArray(n6HWIDX);
+n6QuickBestArrays = n6OriginalArray(n6QBIDX);
+n6QuickWorstArrays = n6OriginalArray(n6QWIDX);
+n6ShakerBestArrays = n6OriginalArray(n6SBIDX);
+n6ShakerWorstArrays = n6OriginalArray(n6SWIDX);
+
+n8MergeBestArrays = n8OriginalArray(n8MBIDX);
+n8MergeWorstArrays = n8OriginalArray(n8MWIDX);
+n8HeapBestArrays = n8OriginalArray(n8HBIDX);
+n8HeapWorstArrays = n8OriginalArray(n8HWIDX);
+n8QuickBestArrays = n8OriginalArray(n8QBIDX);
+n8QuickWorstArrays = n8OriginalArray(n8QWIDX);
+n8ShakerBestArrays = n8OriginalArray(n8SBIDX);
+n8ShakerWorstArrays = n8OriginalArray(n8SWIDX);
+
+fileID = fopen('finalData.csv', 'w');
+fclose(fileID);
+
+T = table(n4MergeBestArrays,n4MergeBest,n4MergeWorstArrays,n4MergeWorst, ...
+    n4HeapBestArrays,n4HeapBest,n4HeapWorstArrays,n4HeapWorst,n4QuickBestArrays,n4QuickBest, ...
+    n4QuickWorstArrays,n4QuickWorst,n4ShakerBestArrays,n4ShakerBest,n4ShakerWorstArrays,n4ShakerWorst, ...
+    n6MergeBestArrays,n6MergeBest,n6MergeWorstArrays,n6MergeWorst, ...
+    n6HeapBestArrays,n6HeapBest,n6HeapWorstArrays,n6HeapWorst,n6QuickBestArrays,n6QuickBest, ...
+    n6QuickWorstArrays,n6QuickWorst,n6ShakerBestArrays,n6ShakerBest,n6ShakerWorstArrays,n6ShakerWorst, ...
+    n8MergeBestArrays,n8MergeBest,n8MergeWorstArrays,n8MergeWorst, ...
+    n8HeapBestArrays,n8HeapBest,n8HeapWorstArrays,n8HeapWorst,n8QuickBestArrays,n8QuickBest, ...
+    n8QuickWorstArrays,n8QuickWorst,n8ShakerBestArrays,n8ShakerBest,n8ShakerWorstArrays,n8ShakerWorst);
+
+writetable(T,'finalData.csv');
+type finalData.csv
 
