@@ -128,7 +128,7 @@ xlim([1,13]);
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Merge');
-legend('O(n)^2', 'nlog(n)', 'n');
+legend('O(n)^2', 'nlog(n)', 'n', 'function estimate');
 
 subplot(2,2,2); 
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0, ...
@@ -141,7 +141,7 @@ xlim([1,13]);
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Heap');
-legend('O(n)^2', 'nlog(n)', 'n');
+legend('O(n)^2', 'nlog(n)', 'n', 'function estimate');
 
 subplot(2,2,3); 
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,c0,0.642.*c0.^2,'m',c0,1.204.*c0.*log(c0),'c', ...
@@ -153,7 +153,7 @@ xlim([1,13]);
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Quick');
-legend('O(n)^2', 'nlog(n)', 'n');
+legend('O(n)^2', 'nlog(n)', 'n', 'function estimate');
 
 subplot(2,2,4); 
 plot(c0,c0.^2, c0, c0.*log(c0),c0,c0,c0,0.972.*c0.^2,'m',c0,1.18.*c0.*log(c0),'c', ...
@@ -165,7 +165,7 @@ xlim([1,13]);
 xlabel('Array Size');
 ylabel('Comparisons');
 title('Shaker');
-legend('O(n)^2', 'nlog(n)', 'n');
+legend('O(n)^2', 'nlog(n)', 'n', 'function estimate');
 
 % paste results
 
